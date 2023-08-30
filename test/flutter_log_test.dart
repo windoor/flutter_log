@@ -9,6 +9,8 @@ class MockFlutterLogPlatform
     implements FlutterLogPlatform {
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  @override
+  Future<String?> getPlatformLog() => Future.value('42');
 }
 
 void main() {
@@ -24,5 +26,6 @@ void main() {
     FlutterLogPlatform.instance = fakePlatform;
 
     expect(await flutterLogPlugin.getPlatformVersion(), '42');
+    expect(await flutterLogPlugin.getPlatformLog(), '42');
   });
 }
